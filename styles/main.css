@@ -126,7 +126,7 @@ body {
 .anim{
     opacity: 0;
     transform: translateY(30px);
-    animation: moveup 1s linear forwards;
+    animation: moveup 0.5s linear forwards;
 }
 @keyframes moveup{
     100%{
@@ -139,4 +139,8 @@ body {
     width: 20px;
     height: auto;
     display: inline-block;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
 }
