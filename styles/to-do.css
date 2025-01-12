@@ -16,7 +16,6 @@ body {
     gap: 2rem;
 }
 
-/* Fuel Bar Styles */
 .fuel-bar {
     display: flex;
     flex-direction: column;
@@ -46,9 +45,7 @@ body {
 
 .fuel-level {
     background: #FFD700;
-    /* Gold color */
     height: 33%;
-    /* Fuel level */
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -58,7 +55,6 @@ body {
     font-weight: bold;
 }
 
-/* To-Do List Styles */
 .todo-list {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -133,7 +129,6 @@ body {
 
 .star {
     color: #FFD700;
-    /* Gold color */
     font-size: 1.2rem;
 }
 

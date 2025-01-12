@@ -15,7 +15,6 @@
 </body>
 
 </html>
-<!-- Rest of your HTML file -->
 
 <script async crossorigin="anonymous"
     data-clerk-publishable-key="pk_test_bm90YWJsZS1tdWRmaXNoLTI4LmNsZXJrLmFjY291bnRzLmRldiQ"
@@ -55,7 +54,9 @@
 
             const signInDiv = document.getElementById('log-in')
 
-            Clerk.mountSignIn(signInDiv)
+            Clerk.mountSignIn(signInDiv, {
+                afterSignInUrl: `${window.location.origin}/dashboard.html`, 
+            });
         }
     })
 </script>

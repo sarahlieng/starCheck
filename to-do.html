@@ -1,43 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles/to-do.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do</title>
+  <style>
+    body {
+      overflow: hidden;
+      background: url('../img/to-do-background.png') no-repeat center center/cover;
+      color: rgb(0, 0, 0);
+      font-family: Optima, sans-serif;
+      margin: 0;
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .progress-bar-container {
+      width: 100px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 15px;
+      margin-right: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+      height: calc(85vh - 40px); 
+    }
+    .progress-bar {
+      width: 80%;
+      height: 0%;
+      background-color: #fdfd96;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 10%;
+      transition: height 0.3s ease-in-out;
+    }
+    .progress-bar-label {
+      position: absolute;
+      top: 5%;
+      font-size: 25px;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+    }
+    .progress-bar-percentage {
+      position: absolute;
+      bottom: 5%;
+      font-size: 20px;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+    }
+    .container {
+      width: 500px;
+      height: calc(85vh - 40px); 
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center;
+      color: #000000;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .filter-group {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .filter-group label:last-child {
+      margin-left: auto;
+    }
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .form-group input, .form-group select, .form-group button {
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      border: none;
+    }
+    .form-group input {
+      flex: 2;
+    }
+    .form-group select {
+      flex: 2;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      border: none;
+      appearance: none;
+      background: white;
+      color: #333;
+      position: relative;
+    }
+    .form-group button {
+      background-color: #5e60ce;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      flex: 0.8;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow-y: auto;
+      flex-grow: 1;
+      border-radius: 8px;
+    }
+    ul li {
+      background: rgba(255, 255, 255, 0.85);
+      margin: 8px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    ul li .star {
+      font-size: 20px;
+      color: #ccc;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    ul li .star.checked {
+      color: gold;
+    }
+    ul li .task-text {
+      flex-grow: 1;
+      word-wrap: break-word;
+      font-size: 14px;
+      color: #333;
+      text-align: left;
+    }
+    ul li .task-text.strikethrough {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+    ul li span {
+      font-size: 14px;
+      color: #666;
+      text-align: right;
+      align-self: center;
+    }
+    .delete-btn {
+      background: none;
+      color: #888;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    .delete-btn:hover {
+      color: #555;
+    }
+
+    .return-to-launch {
+        background-color: white;
+        position: absolute;
+        margin-bottom: 645px;
+        margin-left: 620px;
+        padding-left: 7 7 7 7;
+        cursor: pointer;
+    }
+
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <!-- Fuel Bar -->
-        <div class="fuel-bar">
-            <div class="fuel-label">FUEL</div>
-            <div class="fuel-meter">
-                <div class="fuel-level"></div>
-            </div>
-            <div class="fuel-percentage">33%</div>
-        </div>
+    <a class="return-to-launch" href="dashboard.html">
+        <button>X</button>
+    </a>
     
-        <!-- To-Do List -->
-        <div class="todo-list">
-            <div class="todo-header">
-                <h2>TO-DO List</h2>
-                <button class="close-btn">×</button>
-            </div>
-            <div class="todo-input">
-                <input type="text" placeholder="Enter task...">
-                <button class="category-btn">Category</button>
-            </div>
-            <ul class="tasks">
-                <li><span class="star">★</span><button class="delete-btn">×</button></li>
-                <li><span class="star">★</span><button class="delete-btn">×</button></li>
-                <li><span class="star">★</span><button class="delete-btn">×</button></li>
-                <li><span class="star">★</span><button class="delete-btn">×</button></li>
-                <li><span class="star">★</span><button class="delete-btn">×</button></li>
-            </ul>
-        </div>
+  <div class="progress-bar-container">
+    <div class="progress-bar-label">FUEL</div>
+    <div class="progress-bar" id="progress-bar"></div>
+    <div class="progress-bar-percentage" id="progress-percentage">0%</div>
+  </div>
+  <div class="container">
+    <h1>TO-DO List</h1>
+    <div class="filter-group">
+      <label for="filter-category">Filter by category:</label>
+      <select id="filter-category">
+        <option value="All">All</option>
+        <option value="Exploration">Exploration</option>
+        <option value="Spaceship Maintenance">Spaceship Maintenance</option>
+        <option value="Daily Tasks">Daily Tasks</option>
+        
+      </select>
+      <label>
+        <input type="checkbox" id="show-completed"> Show Completed
+      </label>
     </div>
-</body>
+    <div class="form-group">
+      <input type="text" id="task-input" placeholder="Enter task...">
+      <select id="category-select">
+        <option value="" disabled selected>Category</option>
+        <option value="Exploration">Exploration</option>
+        <option value="Spaceship Maintenance">Spaceship Maintenance</option>
+        <option value="Daily Tasks">Daily Tasks</option>
+      </select>
+      <button id="add-task-btn">Add</button>
+    </div>
+    <ul id="task-list"></ul>
+  </div>
 
+  <script>
+    const taskInput = document.getElementById('task-input');
+    const categorySelect = document.getElementById('category-select');
+    const addTaskBtn = document.getElementById('add-task-btn');
+    const taskList = document.getElementById('task-list');
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercentage = document.getElementById('progress-percentage');
+    const showCompletedCheckbox = document.getElementById('show-completed');
+    const filterCategory = document.getElementById('filter-category');
+
+    function updateProgressBar() {
+      const tasks = Array.from(taskList.querySelectorAll('li'));
+      const totalTasks = tasks.length;
+      const completedTasks = tasks.filter(task => task.querySelector('.star').classList.contains('checked')).length;
+      const progress = totalTasks === 0 ? 0 : Math.min((completedTasks / totalTasks) * 100, 100);
+      progressBar.style.height = `${progress * 0.8}%`;
+      progressPercentage.textContent = `${progress.toFixed(0)}%`; 
+
+    function addTask() {
+      const task = taskInput.value.trim();
+      const category = categorySelect.value;
+
+      if (task === '') {
+        alert('Please enter a task.');
+        return;
+      }
+
+      if (category === '') {
+        alert('Please select a category.');
+        return;
+      }
+
+      const listItem = document.createElement('li');
+      listItem.setAttribute('data-category', category);
+      listItem.setAttribute('data-completed', 'false');
+      listItem.setAttribute('data-timestamp', Date.now());
+      listItem.innerHTML = `
+        <span class="star">&#9734;</span>
+        <span class="task-text">${task}</span>
+        <span>[${category}]</span>
+        <button class="delete-btn">&times;</button>
+      `;
+
+      const star = listItem.querySelector('.star');
+      const taskText = listItem.querySelector('.task-text');
+
+      star.addEventListener('click', () => {
+        const isChecked = star.classList.toggle('checked');
+        star.innerHTML = isChecked ? '&#9733;' : '&#9734;';
+        taskText.classList.toggle('strikethrough', isChecked);
+        listItem.setAttribute('data-completed', isChecked.toString());
+        updateTaskVisibility();
+        updateProgressBar();
+      });
+
+      const deleteBtn = listItem.querySelector('.delete-btn');
+      deleteBtn.addEventListener('click', () => {
+        taskList.removeChild(listItem);
+        updateProgressBar();
+      });
+
+      taskList.appendChild(listItem);
+      taskInput.value = '';
+      taskInput.focus();
+      updateTaskVisibility();
+      updateProgressBar();
+    }
+
+    function updateTaskVisibility() {
+      const showCompleted = showCompletedCheckbox.checked;
+      const selectedCategory = filterCategory.value;
+      const tasks = Array.from(taskList.querySelectorAll('li'));
+
+      tasks.forEach(task => {
+        const isCompleted = task.getAttribute('data-completed') === 'true';
+        const taskCategory = task.getAttribute('data-category');
+
+        const matchesCategory = selectedCategory === 'All' || taskCategory === selectedCategory;
+        const matchesCompletion = showCompleted || !isCompleted;
+
+        task.style.display = matchesCategory && matchesCompletion ? 'flex' : 'none';
+      });
+
+      const sortedTasks = tasks.sort((a, b) => {
+        const isCompletedA = a.getAttribute('data-completed') === 'true';
+        const isCompletedB = b.getAttribute('data-completed') === 'true';
+        if (isCompletedA !== isCompletedB) {
+          return isCompletedA ? 1 : -1; 
+        }
+        const timeA = parseInt(a.getAttribute('data-timestamp'));
+        const timeB = parseInt(b.getAttribute('data-timestamp'));
+        return timeB - timeA;
+      });
+
+      sortedTasks.forEach(task => taskList.appendChild(task));
+    }
+
+    addTaskBtn.addEventListener('click', addTask);
+
+    taskInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        addTask();
+      }
+    });
+
+    filterCategory.addEventListener('change', updateTaskVisibility);
+    showCompletedCheckbox.addEventListener('change', updateTaskVisibility);
+
+    window.addEventListener('load', updateTaskVisibility);
+  </script>
+</body>
 </html>

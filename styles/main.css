@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +13,6 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -24,17 +22,13 @@ body {
     position: absolute;
     top: 0;
     width: 100vw;
-    /* Semi-transparent navbar */
 }
 
 .names {
     position: absolute;
     top: 50%;
-    /* Vertically center */
     left: 50%;
-    /* Horizontally center */
     transform: translate(-50%, -50%);
-    /* Offset to perfectly center it */
     font-size: 22px;
     text-align: center;
 }
@@ -64,7 +58,6 @@ body {
 
 .button {
     background-color: #faf096;
-    /* Gold color */
     color: black;
     border: none;
     padding: 0.5rem 1rem;
@@ -79,7 +72,6 @@ body {
     background-color: #faf096;
 }
 
-/* Hero section styles */
 .hero {
     text-align: center;
     margin: auto;
@@ -89,7 +81,6 @@ body {
     align-items: center;
     flex-grow: 1;
     height: 100vh;
-    /* Ensures it occupies all available vertical space */
 }
 
 .hero h1 {
@@ -108,7 +99,6 @@ body {
 
 .explore-button {
     background-color: #faf096;
-    /* Gold color */
     color: black;
     border: none;
     padding: 0.8rem 2rem;
