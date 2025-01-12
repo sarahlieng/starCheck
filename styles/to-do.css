@@ -1,17 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
-    background: url('../img/image-1.png') no-repeat center center/cover;
+    font-family: Optima, sans-serif;
+    background: url('../img/to-do-background.png') no-repeat center center/cover;
     color: white;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    margin: 0;
 }
 
 .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    width: 80%;
+    gap: 2rem;
 }
 
 /* Fuel Bar Styles */
@@ -62,11 +64,12 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
 }
 
 .todo-header {
