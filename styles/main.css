@@ -1,0 +1,113 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Optima, sans-serif;
+    background: url('../img/image-1.png') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgb(255 255 255 / 30%);
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    /* Semi-transparent navbar */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px;
+    margin-right: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+}
+
+.nav-links span {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: #faf096;
+    /* Gold color */
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: normal;
+    font-family: Optima, sans-serif;
+    font-size: 1.3rem;
+}
+
+.button:hover {
+    background-color: #faf096;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 100vh;
+    /* Ensures it occupies all available vertical space */
+}
+
+.hero h1 {
+    font-size: 7rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    white-space: pre-line;
+    padding-top: 4rem;
+}
+
+.hero p {
+    font-size: 2.3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.explore-button {
+    background-color: #faf096;
+    /* Gold color */
+    color: black;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: Optima, sans-serif;
+}
+
+.explore-button:hover {
+    background-color: #faf096;
+}
