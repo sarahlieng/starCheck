@@ -235,7 +235,8 @@
       const progress = totalTasks === 0 ? 0 : Math.min((completedTasks / totalTasks) * 100, 100);
       progressBar.style.height = `${progress * 0.8}%`;
       progressPercentage.textContent = `${progress.toFixed(0)}%`; 
-
+    }
+    
     function addTask() {
       const task = taskInput.value.trim();
       const category = categorySelect.value;
